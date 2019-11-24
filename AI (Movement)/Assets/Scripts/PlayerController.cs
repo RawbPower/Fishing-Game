@@ -4,22 +4,58 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+
+    // Public Variables
     public float speed;
     public float rotation;
+    public float acceleration;
+    public float angular;
 
-    private Rigidbody2D rb2d;
+    public float maxSpeed = 20;
 
-    void Start()
+    void FixedUpdate()
     {
-        rb2d = GetComponent<Rigidbody2D>();
-    }
-
-    private void FixedUpdate()
-    {
+        // Get input from user. This is just here test movement
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
-        Vector2 movement = new Vector2(moveHorizontal, moveVertical);
-        movement.Normalize();
-        rb2d.AddForce(movement*speed);
+
+        Vector3 velocity = new Vector3(moveHorizontal * speed, moveVertical * speed, 0);
+
+        // Update position using simple Euler method
+        transform.position = transform.position + velocity * Time.fixedDeltaTime;
+
+        transform.eulerAngles = new Vector3(0, 0, GetNewOrientation(transform.rotation.eulerAngles.z, velocity));
+
+        // Update linear velocity
+        if (moveHorizontal == 0 && moveVertical == 0)
+        {
+            speed = 0;
+        }
+        else
+        {
+            speed = speed + acceleration * Time.deltaTime;
+
+            if (speed > maxSpeed)
+            {
+                speed = maxSpeed;
+            }
+        }
+   
+
+    }
+
+    float GetNewOrientation(float currentOrientation, Vector3 velocity)
+    {
+
+        if (velocity.magnitude > 0)
+        {
+            return Mathf.Atan2(-velocity.x, velocity.y) * (180 / (Mathf.PI));
+        }
+        else
+        {
+            return currentOrientation;
+        }
+
     }
 }
+

@@ -256,3 +256,12 @@ D:\AI-Engine\AI (Movement)\obj\Debug\Assembly-CSharp.csproj.CoreCompileInputs.ca
 D:\AI-Engine\AI (Movement)\obj\Debug\Assembly-CSharp.csproj.CopyComplete
 D:\AI-Engine\AI (Movement)\obj\Debug\Assembly-CSharp.dll
 D:\AI-Engine\AI (Movement)\obj\Debug\Assembly-CSharp.pdb
+D:\AI-Engine\AI (Movement)\Temp\bin\Debug\Unity.Timeline.Editor.pdb
+D:\AI-Engine\AI (Movement)\Temp\bin\Debug\Unity.VSCode.Editor.pdb
+D:\AI-Engine\AI (Movement)\Temp\bin\Debug\Unity.TextMeshPro.Editor.pdb
+D:\AI-Engine\AI (Movement)\Temp\bin\Debug\UnityEngine.UI.pdb
+D:\AI-Engine\AI (Movement)\Temp\bin\Debug\Unity.Timeline.pdb
+D:\AI-Engine\AI (Movement)\Temp\bin\Debug\Unity.CollabProxy.Editor.pdb
+D:\AI-Engine\AI (Movement)\Temp\bin\Debug\Unity.Rider.Editor.pdb
+D:\AI-Engine\AI (Movement)\Temp\bin\Debug\Unity.TextMeshPro.pdb
+D:\AI-Engine\AI (Movement)\Temp\bin\Debug\UnityEditor.UI.pdb
