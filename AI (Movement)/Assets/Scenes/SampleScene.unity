@@ -424,6 +424,7 @@ GameObject:
   - component: {fileID: 2081941404}
   - component: {fileID: 2081941402}
   - component: {fileID: 2081941405}
+  - component: {fileID: 2081941406}
   m_Layer: 0
   m_Name: AI
   m_TagString: Untagged
@@ -467,7 +468,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2081941401}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c0817b4bb6bc33e4aa3f6e8d645ff3ec, type: 3}
   m_Name: 
@@ -490,3 +491,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxSpeed: 3
   maxRotation: 70
+--- !u!114 &2081941406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2081941401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b8952ca9741a7447a5a54620f102a43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxSpeed: 5
+  maxAcceleration: 5
+  rotation: 0
+  timeToTarget: 0.25
+  target: {fileID: 1591451305}
+  movement: 0
