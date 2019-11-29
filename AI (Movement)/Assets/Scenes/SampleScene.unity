@@ -506,6 +506,10 @@ MonoBehaviour:
   maxSpeed: 5
   maxAcceleration: 5
   rotation: 0
-  timeToTarget: 0.25
+  velocity: {x: 0, y: 0, z: 0}
+  minSpeed: 0
+  timeToTarget: 0.1
   target: {fileID: 1591451305}
-  movement: 0
+  movement: 2
+  targetRadius: 0.001
+  slowRadius: 3

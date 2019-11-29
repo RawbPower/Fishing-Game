@@ -13,13 +13,15 @@ public class PlayerController : MonoBehaviour
 
     public float maxSpeed = 20;
 
+    private Vector3 velocity;
+
     void FixedUpdate()
     {
         // Get input from user. This is just here test movement
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
 
-        Vector3 velocity = new Vector3(moveHorizontal * speed, moveVertical * speed, 0);
+        velocity = new Vector3(moveHorizontal * speed, moveVertical * speed, 0);
 
         // Update position using simple Euler method
         transform.position = transform.position + velocity * Time.fixedDeltaTime;
@@ -55,6 +57,13 @@ public class PlayerController : MonoBehaviour
         {
             return currentOrientation;
         }
+
+    }
+
+    public Vector3 GetVelocity()
+    {
+
+        return velocity;
 
     }
 }
