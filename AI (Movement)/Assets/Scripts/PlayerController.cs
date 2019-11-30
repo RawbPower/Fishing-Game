@@ -1,4 +1,11 @@
-﻿using System.Collections;
+﻿/*
+ * Player Controller
+ * 
+ * Unity script for control basic movement and orientation of player
+ * 
+ */
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,11 +13,12 @@ public class PlayerController : MonoBehaviour
 {
 
     // Public Variables
-    public float speed;
-    public float rotation;
-    public float acceleration;
-    public float angular;
+    public float speed;                 // Speed of player
+    public float rotation;              // Orientation of player
+    public float acceleration;          // Linear acceleration of player
+    public float angular;               // Angular acceleration of player
 
+    // Set max speed for player
     public float maxSpeed = 20;
 
     private Vector3 velocity;
@@ -46,20 +54,25 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    // Force the orientation of the character to be in the direction that it is moving
     float GetNewOrientation(float currentOrientation, Vector3 velocity)
     {
 
+        // Make sure we have a velocity
         if (velocity.magnitude > 0)
         {
+            // Calculate orientation using an arctan of the velocity components
             return Mathf.Atan2(-velocity.x, velocity.y) * (180 / (Mathf.PI));
         }
         else
         {
+            // Otherwise return to current orientation
             return currentOrientation;
         }
 
     }
 
+    // Return velocity of player
     public Vector3 GetVelocity()
     {
 
