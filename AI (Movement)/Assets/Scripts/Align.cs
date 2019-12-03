@@ -38,12 +38,10 @@ public class Align : SteeringBehavior
         // Map the result to the (-pi, pi) interval
         rotation = MapToRange(rotation);
         float rotationSize = Mathf.Abs(rotation);
-        Debug.Log(rotation);
 
         // Check if we are there, return no steering
         if (rotationSize < targetRadius)
         {
-            Debug.Log("Piss");
             steering.linear = Vector3.zero;
             steering.angular = 0f;
             return steering;
