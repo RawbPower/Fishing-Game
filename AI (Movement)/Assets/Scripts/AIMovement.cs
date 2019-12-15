@@ -13,7 +13,7 @@ public class AIMovement : MonoBehaviour
 {
 
     [System.Serializable]
-    public enum Movement { Seek, Flee, Arrive, Align, Pursue, Pursue2, Face, Look }         // Enum for different AI movement types
+    public enum Movement { Seek, Flee, Arrive, Align, Pursue, Pursue2, Face, Look, Stop }         // Enum for different AI movement types
 
     // Public Variables
 
@@ -71,6 +71,9 @@ public class AIMovement : MonoBehaviour
                 break;
             case Movement.Look:
                 sb = new LookWhereYoureGoing(this.gameObject, target, maxAcceleration, maxSpeed, targetRadius, slowRadius, timeToTarget);
+                break;
+            case Movement.Stop:
+                sb = new Stop(this.gameObject, target, maxAcceleration, timeToTarget);
                 break;
         }
 

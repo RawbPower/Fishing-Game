@@ -139,7 +139,6 @@ D:\AI-Engine\AI (Movement)\Temp\bin\Debug\UnityEngine.CrashReportingModule.dll
 D:\AI-Engine\AI (Movement)\Temp\bin\Debug\UnityEngine.DirectorModule.dll
 D:\AI-Engine\AI (Movement)\Temp\bin\Debug\UnityEngine.dll
 D:\AI-Engine\AI (Movement)\Temp\bin\Debug\UnityEngine.DSPGraphModule.dll
-D:\AI-Engine\AI (Movement)\Temp\bin\Debug\UnityEngine.FileSystemHttpModule.dll
 D:\AI-Engine\AI (Movement)\Temp\bin\Debug\UnityEngine.GameCenterModule.dll
 D:\AI-Engine\AI (Movement)\Temp\bin\Debug\UnityEngine.GridModule.dll
 D:\AI-Engine\AI (Movement)\Temp\bin\Debug\UnityEngine.HotReloadModule.dll
@@ -206,7 +205,6 @@ D:\AI-Engine\AI (Movement)\Temp\bin\Debug\UnityEngine.CoreModule.xml
 D:\AI-Engine\AI (Movement)\Temp\bin\Debug\UnityEngine.CrashReportingModule.xml
 D:\AI-Engine\AI (Movement)\Temp\bin\Debug\UnityEngine.DSPGraphModule.xml
 D:\AI-Engine\AI (Movement)\Temp\bin\Debug\UnityEngine.DirectorModule.xml
-D:\AI-Engine\AI (Movement)\Temp\bin\Debug\UnityEngine.FileSystemHttpModule.xml
 D:\AI-Engine\AI (Movement)\Temp\bin\Debug\UnityEngine.GameCenterModule.xml
 D:\AI-Engine\AI (Movement)\Temp\bin\Debug\UnityEngine.GridModule.xml
 D:\AI-Engine\AI (Movement)\Temp\bin\Debug\UnityEngine.HotReloadModule.xml
@@ -265,3 +263,6 @@ D:\AI-Engine\AI (Movement)\Temp\bin\Debug\Unity.CollabProxy.Editor.pdb
 D:\AI-Engine\AI (Movement)\Temp\bin\Debug\Unity.Rider.Editor.pdb
 D:\AI-Engine\AI (Movement)\Temp\bin\Debug\Unity.TextMeshPro.pdb
 D:\AI-Engine\AI (Movement)\Temp\bin\Debug\UnityEditor.UI.pdb
+D:\AI-Engine\AI (Movement)\Temp\bin\Debug\UnityEngine.SubsystemsModule.dll
+D:\AI-Engine\AI (Movement)\Temp\bin\Debug\Unity.CompilationPipeline.Common.dll
+D:\AI-Engine\AI (Movement)\Temp\bin\Debug\UnityEngine.SubsystemsModule.xml
