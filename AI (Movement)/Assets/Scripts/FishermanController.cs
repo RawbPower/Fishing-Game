@@ -8,28 +8,18 @@ public class FishermanController : PlayerController
     public GameObject lure;
 
     private Vector3 distance;
+    private PlayerState state;
 
     private void Start()
     {
+        state = new WaitingState();
         lure.GetComponent<AIMovement>().movement = AIMovement.Movement.Face;
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
-        if (Input.GetKey("space"))
-        {
-            distance = (transform.position - lure.transform.position);
-            lure.GetComponent<AIMovement>().target = this.gameObject;
-            lure.GetComponent<AIMovement>().movement = AIMovement.Movement.Arrive;
-        } else if (lure.GetComponent<AIMovement>().velocity.magnitude > lure.GetComponent<AIMovement>().minSpeed)
-        {
-            lure.GetComponent<AIMovement>().movement = AIMovement.Movement.Stop;
-        } else
-        {
-            lure.GetComponent<AIMovement>().velocity = Vector3.zero;
-            lure.GetComponent<AIMovement>().target = this.gameObject;
-            lure.GetComponent<AIMovement>().movement = AIMovement.Movement.Face;
-        }
+        Debug.Log(state.ToString());
+        state.Update(this.gameObject);
     }
 }
