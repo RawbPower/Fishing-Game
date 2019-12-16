@@ -14,7 +14,8 @@ using UnityEngine;
 public class Pursue2 : Arrive
 {
     public Pursue2(GameObject character, GameObject target, float maxAcceleration, float maxSpeed, float targetRadius, float slowRadius, float timeToTarget)
-        : base(character, target, maxAcceleration, maxSpeed, targetRadius, slowRadius, timeToTarget) { }
+        : base(character, target, maxAcceleration, maxSpeed, targetRadius, slowRadius, timeToTarget) {
+    }
 
     // Holds maximum prediciton time
     public float maxPrediction = 1000;
@@ -36,7 +37,19 @@ public class Pursue2 : Arrive
         float distance = direction.magnitude;
 
         // Work out our current speed
-        float speed = character.GetComponent<AIMovement>().GetVelocity().magnitude;
+        float speed;
+        if (character.GetComponent<AIMovement>() != null)
+        {
+            speed = character.GetComponent<AIMovement>().GetVelocity().magnitude;
+        }
+        else if (character.GetComponent<FishController>() != null)
+        {
+            speed = character.GetComponent<FishController>().GetVelocity().magnitude;
+        }
+        else
+        {
+            throw new System.Exception("The is no component of the game object " + character.name + " which has a velocity parameter (ie. AIMovement or FishController)");
+        }
         float prediction;
 
         //Debug.Log("speed: " + speed);
@@ -45,7 +58,6 @@ public class Pursue2 : Arrive
         // Check if speed is too small to give a reasonable prediction time
         if (speed <= distance / maxPrediction)
         {
-            Debug.Log("Ding");
             prediction = maxPrediction;
         }
         else

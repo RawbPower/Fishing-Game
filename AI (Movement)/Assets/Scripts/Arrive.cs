@@ -54,6 +54,7 @@ public class Arrive : SteeringBehavior
         }   // Otherwise calculate scaled speed
         else
         {
+            //Debug.Log("Pingo " + character.name);
             targetSpeed = maxSpeed * (distance / slowRadius);
         }
 
@@ -65,9 +66,21 @@ public class Arrive : SteeringBehavior
         targetVelocity.Normalize();
         targetVelocity *= targetSpeed;
 
+        Vector3 characterVelocity = Vector3.zero;
+
         // Get characters current speed
-        AIMovement aiMovement = character.GetComponent<AIMovement>();
-        Vector3 characterVelocity = aiMovement.GetVelocity();
+        if (character.GetComponent<AIMovement>() != null)
+        {
+            AIMovement aiMovement = character.GetComponent<AIMovement>();
+            characterVelocity = aiMovement.GetVelocity();
+        } else if (character.GetComponent<FishController>() != null)
+        {
+            FishController fishController = character.GetComponent<FishController>();
+            characterVelocity = fishController.GetVelocity();
+        } else
+        {
+            throw new System.Exception("The is no component of the game object " + character.name + " which has a velocity parameter (ie. AIMovement or FishController)");
+        }
 
         // Acceleration tries to get to the target velocity
         steering.linear = targetVelocity - characterVelocity;

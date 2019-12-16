@@ -5,7 +5,7 @@ using UnityEngine;
 public class FishermanController : PlayerController
 {
 
-    public GameObject lure;
+    public GameObject lure; 
 
     private Vector3 distance;
     private PlayerState state;
@@ -17,9 +17,9 @@ public class FishermanController : PlayerController
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        Debug.Log(state.ToString());
+        //Debug.Log(state.ToString());
         state.Update(this.gameObject);
     }
 }

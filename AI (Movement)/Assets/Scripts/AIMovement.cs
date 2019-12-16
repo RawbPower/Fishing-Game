@@ -39,7 +39,7 @@ public class AIMovement : MonoBehaviour
     // Set speed when called
     private void Awake()
     {
-        minSpeed = 0.2 * Time.fixedDeltaTime;
+        //minSpeed = 0.2 * Time.fixedDeltaTime;
     }
 
     // Update is called once per frame
@@ -65,6 +65,7 @@ public class AIMovement : MonoBehaviour
                 break;
             case Movement.Pursue2:
                 sb = new Pursue2(this.gameObject, target, maxAcceleration, maxSpeed, targetRadius, slowRadius, timeToTarget);
+                //Debug.Log(this.name + " " + target.name + " " + maxAcceleration + " " + maxSpeed + " " + targetRadius + " " + slowRadius + " " + timeToTarget);
                 break;
             case Movement.Face:
                 sb = new Face(this.gameObject, target, maxAcceleration, maxSpeed, targetRadius, slowRadius, timeToTarget);
@@ -79,6 +80,7 @@ public class AIMovement : MonoBehaviour
 
         // Get the steering output of the selected behavior
         SteeringOutput steering = sb.GetSteering();
+        //Debug.Log(steering.linear + " AI");
 
         // Update position and orientation
         transform.position += velocity * Time.fixedDeltaTime;
