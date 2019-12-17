@@ -22,9 +22,19 @@ public class PlayerController : MonoBehaviour
     public float maxSpeed = 20;
 
     private Vector3 velocity;
+    private Vector3 prevPos;
+    private Rigidbody2D rb;
+
+    private void Awake()
+    {
+        rb = gameObject.GetComponent<Rigidbody2D>();
+    }
 
     void FixedUpdate()
     {
+
+        prevPos = transform.position;
+        //Debug.Log(prevPos);
         // Get input from user. This is just here test movement
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
@@ -32,7 +42,8 @@ public class PlayerController : MonoBehaviour
         velocity = new Vector3(moveHorizontal * speed, moveVertical * speed, 0);
 
         // Update position using simple Euler method
-        transform.position = transform.position + velocity * Time.fixedDeltaTime;
+        //transform.position = transform.position + velocity * Time.fixedDeltaTime;
+        rb.velocity = new Vector2(velocity.x, velocity.y);
 
         transform.eulerAngles = new Vector3(0, 0, GetNewOrientation(transform.rotation.eulerAngles.z, velocity));
 
@@ -50,7 +61,6 @@ public class PlayerController : MonoBehaviour
                 speed = maxSpeed;
             }
         }
-   
 
     }
 
@@ -70,6 +80,13 @@ public class PlayerController : MonoBehaviour
             return currentOrientation;
         }
 
+    }
+
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        Debug.Log("OnCollisionEnter2D");
+        //transform.position = transform.position - velocity * Time.fixedDeltaTime;
+        //Debug.Log(transform.gameObject.name);
     }
 
     // Return velocity of player

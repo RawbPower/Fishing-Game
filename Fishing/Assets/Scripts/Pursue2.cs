@@ -67,9 +67,24 @@ public class Pursue2 : Arrive
 
         // Put the target together
         base.target = target;
-        base.target.transform.position += target.GetComponent<PlayerController>().GetVelocity() * prediction;
-        SteeringOutput pursueSteer = base.GetSteering();
-        base.target.transform.position -= target.GetComponent<PlayerController>().GetVelocity() * prediction;
+        SteeringOutput pursueSteer;
+
+        if (target.GetComponent<AIMovement>() != null)
+        {
+            base.target.transform.position += target.GetComponent<AIMovement>().GetVelocity() * prediction;
+            pursueSteer = base.GetSteering();
+            base.target.transform.position -= target.GetComponent<AIMovement>().GetVelocity() * prediction;
+        }
+        else if (target.GetComponent<PlayerController>() != null)
+        {
+            base.target.transform.position += target.GetComponent<PlayerController>().GetVelocity() * prediction;
+            pursueSteer = base.GetSteering();
+            base.target.transform.position -= target.GetComponent<PlayerController>().GetVelocity() * prediction;
+        }
+        else
+        {
+            throw new System.Exception("The is no component of the game object " + character.name + " which has a velocity parameter (ie. AIMovement or FishController)");
+        }
 
         return pursueSteer;
     }

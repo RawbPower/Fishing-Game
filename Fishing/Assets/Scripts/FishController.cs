@@ -32,11 +32,13 @@ public class FishController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        Debug.Log(state);
+        //Debug.Log(state);
         FishState returnState = state.Update(this);
         if (returnState != null)
         {
             state = returnState;
+
+            state.Enter(this);
         }
     }
 

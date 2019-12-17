@@ -13,8 +13,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - Player
+  - Pond
   - 
   - 
   - 
@@ -40,4 +40,13 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Ground
+    uniqueID: 3149699807
+    locked: 0
+  - name: Pond
+    uniqueID: 2227535491
+    locked: 0
+  - name: Characters
+    uniqueID: 1220553345
     locked: 0

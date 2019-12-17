@@ -7,28 +7,40 @@ public class WaitingState : PlayerState
 {
     private Vector3 distance;
 
-    public override void HandleInput(GameObject player, Input input)
+    public override PlayerState HandleInput(FishermanController player, Input input)
     {
+        return null;
     }
 
-    public override void Update(GameObject player)
+    public override PlayerState Update(FishermanController player)
     {
         if (Input.GetButton("Action"))
         {
-            distance = (player.transform.position - player.GetComponent<FishermanController>().lure.transform.position);
-            player.GetComponent<FishermanController>().lure.GetComponent<AIMovement>().target = player.gameObject;
-            player.GetComponent<FishermanController>().lure.GetComponent<AIMovement>().movement = AIMovement.Movement.Arrive;
+            distance = (player.transform.position - player.lure.transform.position);
+            player.lure.GetComponent<AIMovement>().target = player.gameObject;
+            player.lure.GetComponent<AIMovement>().movement = AIMovement.Movement.Arrive;
         }
-        else if (player.GetComponent<FishermanController>().lure.GetComponent<AIMovement>().velocity.magnitude > player.GetComponent<FishermanController>().lure.GetComponent<AIMovement>().minSpeed)
+        else if (player.lure.GetComponent<AIMovement>().velocity.magnitude > player.lure.GetComponent<AIMovement>().minSpeed)
         {
-            player.GetComponent<FishermanController>().lure.GetComponent<AIMovement>().movement = AIMovement.Movement.Stop;
+            player.lure.GetComponent<AIMovement>().movement = AIMovement.Movement.Stop;
         }
         else
         {
-            player.GetComponent<FishermanController>().lure.GetComponent<AIMovement>().velocity = Vector3.zero;
-            player.GetComponent<FishermanController>().lure.GetComponent<AIMovement>().target = player.gameObject;
-            player.GetComponent<FishermanController>().lure.GetComponent<AIMovement>().movement = AIMovement.Movement.Face;
+            player.lure.GetComponent<AIMovement>().velocity = Vector3.zero;
+            player.lure.GetComponent<AIMovement>().target = player.gameObject;
+            player.lure.GetComponent<AIMovement>().movement = AIMovement.Movement.Face;
         }
+
+        return null;
+    }
+
+    public override void Enter(FishermanController player)
+    {
+        player.lure.GetComponent<AIMovement>().maxSpeed = 3;
+    }
+
+    public override void Exit(FishermanController player)
+    {
     }
 
     public override string ToString()

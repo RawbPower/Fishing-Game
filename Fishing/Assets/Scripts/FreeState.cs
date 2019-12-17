@@ -44,4 +44,12 @@ public class FreeState : FishState
     {
         return "Free State";
     }
+
+    public override void Enter(FishController fish)
+    {
+    }
+
+    public override void Exit(FishController fish)
+    {
+    }
 }

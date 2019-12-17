@@ -67,8 +67,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1220553345
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 065865cb109892c4fb3a4a6d948c7aec, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -90,8 +90,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 612013258498122329}
-  - component: {fileID: 612013258498122330}
-  - component: {fileID: 612013258498122328}
+  - component: {fileID: 1236622990}
   m_Layer: 0
   m_Name: Lure
   m_TagString: Player
@@ -114,24 +113,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &612013258498122330
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 612013258498122331}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e8997dbad388f74db1be27dadda1897, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 0
-  rotation: 0
-  acceleration: 3
-  angular: 0
-  maxSpeed: 5
---- !u!114 &612013258498122328
+--- !u!114 &1236622990
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -140,11 +122,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 612013258498122331}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8cf850abc58b24498944629c0eb2e3b, type: 3}
+  m_Script: {fileID: 11500000, guid: 4b8952ca9741a7447a5a54620f102a43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
+  maxSpeed: 3
+  minSpeed: 0
+  maxAcceleration: 2
   rotation: 0
-  acceleration: 3
-  angular: 0
-  maxSpeed: 5
+  velocity: {x: 0, y: 0, z: 0}
+  timeToTarget: 0.1
+  target: {fileID: 0}
+  movement: 3
+  targetRadius: 0.001
+  slowRadius: 3

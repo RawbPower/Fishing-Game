@@ -12,5 +12,9 @@ abstract public class FishState
 {
 
     public abstract FishState Update(FishController fish);
+
+    public abstract void Enter(FishController fish);
+
+    public abstract void Exit(FishController fish);
 }
 

@@ -10,8 +10,12 @@ using UnityEngine;
 
 abstract public class PlayerState
 {
-    public abstract void HandleInput(GameObject player, Input input);
+    public abstract PlayerState HandleInput(FishermanController player, Input input);
 
-    public abstract void Update(GameObject player);
+    public abstract PlayerState Update(FishermanController player);
+
+    public abstract void Enter(FishermanController player);
+
+    public abstract void Exit(FishermanController player);
 }
 

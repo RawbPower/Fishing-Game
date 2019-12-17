@@ -4,17 +4,26 @@ using UnityEngine;
 
 public class WalkingState : PlayerState
 {
-    public override void HandleInput(GameObject player, Input input)
+    public override PlayerState HandleInput(FishermanController player, Input input)
     {
-
+        return null;
     }
 
-    public override void Update(GameObject player)
+    public override PlayerState Update(FishermanController player)
     {
+        return null;
     }
 
     public override string ToString()
     {
         return "Walking State";
+    }
+
+    public override void Enter(FishermanController player)
+    {
+    }
+
+    public override void Exit(FishermanController player)
+    {
     }
 }
