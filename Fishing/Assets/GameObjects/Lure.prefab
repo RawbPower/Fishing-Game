@@ -67,8 +67,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1220553345
-  m_SortingLayer: 3
+  m_SortingLayerID: 653229445
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 065865cb109892c4fb3a4a6d948c7aec, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 1236622990}
   m_Layer: 0
   m_Name: Lure
-  m_TagString: Player
+  m_TagString: Lure
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -132,6 +132,6 @@ MonoBehaviour:
   velocity: {x: 0, y: 0, z: 0}
   timeToTarget: 0.1
   target: {fileID: 0}
-  movement: 3
+  movement: 6
   targetRadius: 0.001
   slowRadius: 3

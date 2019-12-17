@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class FishermanController : PlayerController
 {
-
+    public GameObject lureType;
     public GameObject lure;
-    public float catchRadius = 1.2f;
+    private bool lureCast;
+    public float catchRadius = 3.0f;
 
     private Vector3 distance;
     private PlayerState state;
@@ -14,15 +15,15 @@ public class FishermanController : PlayerController
 
     private void Start()
     {
-        state = new WaitingState();
-        lure.GetComponent<AIMovement>().movement = AIMovement.Movement.Face;
+        state = new WalkingState();
+        //lure.GetComponent<AIMovement>().movement = AIMovement.Movement.Face;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
         //base.FixedUpdate();
-        //Debug.Log(state.ToString());
+        //Debug.Log(state);
         PlayerState returnState = state.Update(this);
         if (returnState != null)
         {
@@ -50,6 +51,32 @@ public class FishermanController : PlayerController
             FishController caughtFish = fishOnHook;
             fishOnHook = null;
             Destroy(caughtFish.gameObject);
+        }
+    }
+
+    public void RemoveLure()
+    {
+        GameObject removedLure = lure;
+        lure = null;
+        Destroy(removedLure.gameObject);
+        lureCast = false;
+    }
+
+    public void CastLure()
+    {
+        Debug.Log("DJOSIJ");
+        if (lureCast == false)
+        {
+            lureType.GetComponent<AIMovement>().target = this.gameObject;
+            Instantiate(lureType);
+            lure = GameObject.FindGameObjectWithTag("Lure");
+            GameObject[] fishes;
+            fishes = GameObject.FindGameObjectsWithTag("Fish");
+
+            foreach (GameObject f in fishes) {
+                f.GetComponent<FishController>().target = lure;
+            }
+            lureCast = true;
         }
     }
 }

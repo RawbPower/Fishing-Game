@@ -3,7 +3,9 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Lure
+  - Fish
   layers:
   - Default
   - TransparentFX
@@ -49,4 +51,7 @@ TagManager:
     locked: 0
   - name: Characters
     uniqueID: 1220553345
+    locked: 0
+  - name: Lure
+    uniqueID: 653229445
     locked: 0

@@ -6,11 +6,18 @@ public class WalkingState : PlayerState
 {
     public override PlayerState HandleInput(FishermanController player, Input input)
     {
+
         return null;
     }
 
     public override PlayerState Update(FishermanController player)
     {
+        if (Input.GetKey(KeyCode.X))
+        {
+            player.CastLure();
+            return new WaitingState();
+        }
+
         return null;
     }
 
@@ -21,6 +28,7 @@ public class WalkingState : PlayerState
 
     public override void Enter(FishermanController player)
     {
+        player.RemoveLure();
     }
 
     public override void Exit(FishermanController player)
