@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Lure
   - Fish
+  - Pond
   layers:
   - Default
   - TransparentFX

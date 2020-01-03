@@ -7,15 +7,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
+[Serializable]
 abstract public class PlayerState
 {
-    public abstract PlayerState HandleInput(FishermanController player, Input input);
+    public abstract PlayerState HandleInput(Fisherman player, Input input);
 
-    public abstract PlayerState Update(FishermanController player);
+    public abstract PlayerState Update(Fisherman player);
 
-    public abstract void Enter(FishermanController player);
+    public abstract void Enter(Fisherman player);
 
-    public abstract void Exit(FishermanController player);
+    public abstract void Exit(Fisherman player);
 }
 

@@ -40,8 +40,8 @@ public class Stop : SteeringBehavior
         targetVelocity *= maxSpeed;
 
         // Get characters current speed
-        AIMovement aiMovement = character.GetComponent<AIMovement>();
-        Vector3 characterVelocity = aiMovement.GetVelocity();
+        IFollowable followable = character.GetComponent<IFollowable>();
+        Vector3 characterVelocity = followable.GetVelocity();
 
         // Acceleration tries to get to the target velocity
         steering.linear = targetVelocity - characterVelocity;

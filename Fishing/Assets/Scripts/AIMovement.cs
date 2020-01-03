@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-public class AIMovement : MonoBehaviour
+public class AIMovement : MonoBehaviour, IFollowable
 {
 
     [System.Serializable]

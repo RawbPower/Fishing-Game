@@ -26,7 +26,7 @@ public class Pursue : Seek
         float distance = direction.magnitude;
 
         // Work out our current speed
-        float speed = character.GetComponent<AIMovement>().GetVelocity().magnitude;
+        float speed = character.GetComponent<IFollowable>().GetVelocity().magnitude;
         float prediction;
 
         //Debug.Log("speed: " + speed);

@@ -64,8 +64,8 @@ public class Align : SteeringBehavior
         targetRotation *= rotation/rotationSize;
 
         // Get characters current orientation
-        AIMovement aiMovement = character.GetComponent<AIMovement>();
-        float characterRotation = aiMovement.GetRotation();
+        IFollowable followable = character.GetComponent<IFollowable>();
+        float characterRotation = followable.GetRotation();
 
         // Acceleration tries to get to the target orientation
         steering.angular = targetRotation - characterRotation;

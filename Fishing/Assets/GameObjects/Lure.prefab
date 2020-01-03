@@ -91,6 +91,8 @@ GameObject:
   m_Component:
   - component: {fileID: 612013258498122329}
   - component: {fileID: 1236622990}
+  - component: {fileID: 7830116848184399194}
+  - component: {fileID: -9088526056494296422}
   m_Layer: 0
   m_Name: Lure
   m_TagString: Lure
@@ -135,3 +137,31 @@ MonoBehaviour:
   movement: 6
   targetRadius: 0.001
   slowRadius: 3
+--- !u!114 &7830116848184399194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 612013258498122331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8cf850abc58b24498944629c0eb2e3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!58 &-9088526056494296422
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 612013258498122331}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 2

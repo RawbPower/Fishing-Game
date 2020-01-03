@@ -69,7 +69,9 @@ public class Arrive : SteeringBehavior
         Vector3 characterVelocity = Vector3.zero;
 
         // Get characters current speed
-        if (character.GetComponent<AIMovement>() != null)
+        IFollowable followable = character.GetComponent<IFollowable>();
+        characterVelocity = followable.GetVelocity();
+        /*if (character.GetComponent<AIMovement>() != null)
         {
             AIMovement aiMovement = character.GetComponent<AIMovement>();
             characterVelocity = aiMovement.GetVelocity();
@@ -80,7 +82,7 @@ public class Arrive : SteeringBehavior
         } else
         {
             throw new System.Exception("The is no component of the game object " + character.name + " which has a velocity parameter (ie. AIMovement or FishController)");
-        }
+        }*/
 
         // Acceleration tries to get to the target velocity
         steering.linear = targetVelocity - characterVelocity;

@@ -7,12 +7,12 @@ public class WaitingState : PlayerState
 {
     private Vector3 distance;
 
-    public override PlayerState HandleInput(FishermanController player, Input input)
+    public override PlayerState HandleInput(Fisherman player, Input input)
     {
         return null;
     }
 
-    public override PlayerState Update(FishermanController player)
+    public override PlayerState Update(Fisherman player)
     {
         if (Input.GetButton("Action"))
         {
@@ -34,12 +34,12 @@ public class WaitingState : PlayerState
         return null;
     }
 
-    public override void Enter(FishermanController player)
+    public override void Enter(Fisherman player)
     {
         player.lure.GetComponent<AIMovement>().maxSpeed = 3;
     }
 
-    public override void Exit(FishermanController player)
+    public override void Exit(Fisherman player)
     {
     }
 

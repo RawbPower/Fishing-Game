@@ -38,7 +38,8 @@ public class Pursue2 : Arrive
 
         // Work out our current speed
         float speed;
-        if (character.GetComponent<AIMovement>() != null)
+        speed = character.GetComponent<IFollowable>().GetVelocity().magnitude;
+        /*if (character.GetComponent<AIMovement>() != null)
         {
             speed = character.GetComponent<AIMovement>().GetVelocity().magnitude;
         }
@@ -49,7 +50,7 @@ public class Pursue2 : Arrive
         else
         {
             throw new System.Exception("The is no component of the game object " + character.name + " which has a velocity parameter (ie. AIMovement or FishController)");
-        }
+        }*/
         float prediction;
 
         //Debug.Log("speed: " + speed);

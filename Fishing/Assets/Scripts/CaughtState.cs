@@ -18,9 +18,12 @@ public class CaughtState : FishState
 
     public override void Enter(FishController fish)
     {
-        fish.target.GetComponent<AIMovement>().target.GetComponent<FishermanController>().fishOnHook = fish;
-        fish.target.GetComponent<AIMovement>().target.GetComponent<FishermanController>().SetState(new HookedState());
-        fish.target.GetComponent<AIMovement>().target.GetComponent<FishermanController>().GetState().Enter(fish.target.GetComponent<AIMovement>().target.GetComponent<FishermanController>());
+        Fisherman fisherman = fish.target.GetComponent<AIMovement>().target.GetComponent<Fisherman>();
+        fisherman.fishOnHook = fish;
+        fisherman.SetState(new HookedState());
+        fisherman.GetState().Enter(fish.target.GetComponent<AIMovement>().target.GetComponent<Fisherman>());
+        Debug.Log("Caught!");
+
     }
 
     public override void Exit(FishController fish)

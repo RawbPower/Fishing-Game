@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FishController : MonoBehaviour
+public class FishController : MonoBehaviour, IFollowable
 {
     // Public Variables
 
@@ -22,6 +22,7 @@ public class FishController : MonoBehaviour
     public float targetRadius = 0.001f;                 // Radius at which the character is close enough to the target 
     public float slowRadius = 3.0f;                     // Radius at which the character will start to slow down
 
+    [SerializeField]
     private FishState state;
 
     private void Awake()

@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class WalkingState : PlayerState
 {
-    public override PlayerState HandleInput(FishermanController player, Input input)
+    public override PlayerState HandleInput(Fisherman player, Input input)
     {
 
         return null;
     }
 
-    public override PlayerState Update(FishermanController player)
+    public override PlayerState Update(Fisherman player)
     {
         if (Input.GetKey(KeyCode.X))
         {
@@ -26,12 +26,12 @@ public class WalkingState : PlayerState
         return "Walking State";
     }
 
-    public override void Enter(FishermanController player)
+    public override void Enter(Fisherman player)
     {
         player.RemoveLure();
     }
 
-    public override void Exit(FishermanController player)
+    public override void Exit(Fisherman player)
     {
     }
 }

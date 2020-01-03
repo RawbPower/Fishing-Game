@@ -7,22 +7,13 @@ public class HookedState : PlayerState
 
     private Vector3 distance;
 
-    public override PlayerState HandleInput(FishermanController player, Input input)
+    public override PlayerState HandleInput(Fisherman player, Input input)
     {
         return null;
     }
 
-    public override PlayerState Update(FishermanController player)
+    public override PlayerState Update(Fisherman player)
     {
-
-        distance = (player.transform.position - player.lure.transform.position);
-        Debug.Log(distance.magnitude);
-        if (distance.magnitude < player.catchRadius)
-        {
-            player.CatchFish();
-            return new WalkingState();
-        }
-
         if (Input.GetButton("Action"))
         {
             player.lure.GetComponent<AIMovement>().target = player.gameObject;
@@ -47,12 +38,12 @@ public class HookedState : PlayerState
         return "Hooked State";
     }
 
-    public override void Enter(FishermanController player)
+    public override void Enter(Fisherman player)
     {
         player.lure.GetComponent<AIMovement>().maxSpeed = 1;
     }
 
-    public override void Exit(FishermanController player)
+    public override void Exit(Fisherman player)
     {
     }
 }

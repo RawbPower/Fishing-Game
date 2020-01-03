@@ -91,9 +91,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2045612016351016478}
   - component: {fileID: 2045612016351016472}
+  - component: {fileID: 1212698408}
   - component: {fileID: 1212698412}
   - component: {fileID: 1212698411}
-  - component: {fileID: 1212698408}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -133,6 +133,27 @@ MonoBehaviour:
   acceleration: 3
   angular: 0
   maxSpeed: 5
+--- !u!114 &1212698408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2045612016351016475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45a09e060fdcd5648bfa82a4c1c1d09a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0
+  rotation: 0
+  acceleration: 0
+  angular: 0
+  maxSpeed: 20
+  lureType: {fileID: 612013258498122331, guid: 49a12b8a75b40f04a840b48d8774625f, type: 3}
+  lure: {fileID: 0}
+  catchRadius: 3
+  fishOnHook: {fileID: 0}
 --- !u!50 &1212698412
 Rigidbody2D:
   serializedVersion: 4
@@ -170,23 +191,3 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &1212698408
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2045612016351016475}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45a09e060fdcd5648bfa82a4c1c1d09a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 0
-  rotation: 0
-  acceleration: 0
-  angular: 0
-  maxSpeed: 20
-  lure: {fileID: 0}
-  catchRadius: 1.2
-  fishOnHook: {fileID: 0}

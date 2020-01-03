@@ -13,7 +13,7 @@ public class LookWhereYoureGoing : Align
 
         // Check for a zero direction, and make no change if so
         // Not sure about this
-        if (character.GetComponent<AIMovement>().GetVelocity().magnitude == 0)
+        if (character.GetComponent<IFollowable>().GetVelocity().magnitude == 0)
         {
             SteeringOutput steering = new SteeringOutput();
             steering.linear = Vector3.zero;
@@ -24,7 +24,7 @@ public class LookWhereYoureGoing : Align
         // Put the target together
         Debug.Log("Yo");
         float original = base.target.transform.eulerAngles.z;
-        base.target.transform.eulerAngles = new Vector3(0, 0, Mathf.Atan2(-character.GetComponent<AIMovement>().GetVelocity().x, character.GetComponent<AIMovement>().GetVelocity().y) * (180 / Mathf.PI));
+        base.target.transform.eulerAngles = new Vector3(0, 0, Mathf.Atan2(-character.GetComponent<IFollowable>().GetVelocity().x, character.GetComponent<IFollowable>().GetVelocity().y) * (180 / Mathf.PI));
 
         // 2. Delegate to align
         SteeringOutput lookSteer = base.GetSteering();
