@@ -10,11 +10,14 @@ public class LookWhereYoureGoing : Align
     public override SteeringOutput GetSteering()
     {
         // 1. Calculate the target to delegate to align
+        //Debug.Log("POOPA");
 
         // Check for a zero direction, and make no change if so
         // Not sure about this
+        Debug.Log(character.GetComponent<IFollowable>().GetVelocity().magnitude);
         if (character.GetComponent<IFollowable>().GetVelocity().magnitude == 0)
         {
+            //Debug.Log("Bo");
             SteeringOutput steering = new SteeringOutput();
             steering.linear = Vector3.zero;
             steering.angular = 0f;
@@ -28,6 +31,7 @@ public class LookWhereYoureGoing : Align
 
         // 2. Delegate to align
         SteeringOutput lookSteer = base.GetSteering();
+        Debug.Log("Cats");
         base.target.transform.eulerAngles = new Vector3(0, 0, original);
         return lookSteer;
 

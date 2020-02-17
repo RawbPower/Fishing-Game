@@ -17,7 +17,7 @@ public class FishController : MonoBehaviour, IFollowable
     public Vector3 velocity = Vector3.zero;             // Velocity of character           
 
     public float timeToTarget = 0.1f;                   // Causes the movement to slow down as it gets close so that it does overshoot
-    public GameObject target;                           // Game Object for target
+    public GameObject target;                                 // Game Object for target
 
     public float targetRadius = 0.001f;                 // Radius at which the character is close enough to the target 
     public float slowRadius = 3.0f;                     // Radius at which the character will start to slow down

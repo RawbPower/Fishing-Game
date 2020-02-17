@@ -36,7 +36,37 @@ public class FreeState : FishState
             else if (fish.velocity.magnitude < fish.minSpeed)
             {
                 fish.velocity *= 0;
-                return new CaughtState();
+                Vector3 distance = fish.target.transform.position - fish.transform.position;
+                if (distance.magnitude < fish.target.GetComponent<Lure>().catchRadius)
+                {
+                    return new CaughtState();
+                }
+            }
+        } else
+        {
+            sb = new Stop(fish.gameObject, null, fish.maxAcceleration, fish.timeToTarget);
+
+            // Get the steering output of the selected behavior
+            SteeringOutput steering = sb.GetSteering();
+            //Debug.Log(steering.linear + " Free");
+
+            // Update position and orientation
+            fish.transform.position += fish.velocity * Time.fixedDeltaTime;
+            fish.transform.eulerAngles += new Vector3(0, 0, fish.rotation * Time.fixedDeltaTime);
+
+            // Update velocity and rotation
+            fish.velocity += steering.linear * Time.fixedDeltaTime;
+            fish.transform.eulerAngles += new Vector3(0, 0, steering.angular * Time.fixedDeltaTime);
+
+            // If speed exceeds the maximum set it to the max
+            if (fish.velocity.magnitude > fish.maxSpeed)
+            {
+                fish.velocity.Normalize();
+                fish.velocity *= fish.maxSpeed;
+            } // If speed is less than minimum that stop
+            else if (fish.velocity.magnitude < fish.minSpeed)
+            {
+                fish.velocity *= 0;
             }
         }
 

@@ -14,8 +14,15 @@ public class WalkingState : PlayerState
     {
         if (Input.GetKey(KeyCode.X))
         {
-            player.CastLure();
-            return new WaitingState();
+            bool cast = player.CastLure();
+            if (cast)
+            {
+                return new WaitingState();
+            }
+            else
+            {
+                return null;
+            }
         }
 
         return null;

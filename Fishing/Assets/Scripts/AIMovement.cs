@@ -80,7 +80,6 @@ public class AIMovement : MonoBehaviour, IFollowable
 
         // Get the steering output of the selected behavior
         SteeringOutput steering = sb.GetSteering();
-        //Debug.Log(steering.linear + " AI");
 
         // Update position and orientation
         transform.position += velocity * Time.fixedDeltaTime;
@@ -88,6 +87,7 @@ public class AIMovement : MonoBehaviour, IFollowable
 
         // Update velocity and rotation
         velocity += steering.linear * Time.fixedDeltaTime;
+        //Debug.Log(steering.angular);
         transform.eulerAngles += new Vector3(0, 0, steering.angular * Time.fixedDeltaTime);
 
         // If speed exceeds the maximum set it to the max

@@ -129,17 +129,8 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1212698408, guid: cfc5f7a5c3f15c84c9d5525a1461affc, type: 3}
-      propertyPath: maxSpeed
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1212698408, guid: cfc5f7a5c3f15c84c9d5525a1461affc, type: 3}
-      propertyPath: acceleration
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2045612016351016472, guid: cfc5f7a5c3f15c84c9d5525a1461affc,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
+      propertyPath: marker
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2045612016351016475, guid: cfc5f7a5c3f15c84c9d5525a1461affc,
         type: 3}
@@ -380,7 +371,7 @@ PrefabInstance:
     - target: {fileID: 1220608467561106066, guid: d7b062672b639654c9d2328aa6900314,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1220608467561106066, guid: d7b062672b639654c9d2328aa6900314,
         type: 3}

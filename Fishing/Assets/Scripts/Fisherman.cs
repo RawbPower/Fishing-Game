@@ -6,10 +6,16 @@ public class Fisherman : MonoBehaviour
 {
     public GameObject lureType;
     public GameObject lure;
+    public GameObject marker;
     private bool lureCast;
     public float catchRadius = 3.0f;
 
+    public float castAngle;
+    public float castSpeed;
+
     private Vector3 distance;
+
+    private float g = 1.0f;
 
     [SerializeField]
     public PlayerState state;
@@ -26,7 +32,7 @@ public class Fisherman : MonoBehaviour
     void FixedUpdate()
     {
         //base.FixedUpdate();
-        Debug.Log(state);
+        //Debug.Log(state);
         PlayerState returnState = state.Update(this);
         if (returnState != null)
         {
@@ -66,22 +72,43 @@ public class Fisherman : MonoBehaviour
         lureCast = false;
     }
 
-    public void CastLure()
+    public bool CastLure()
     {
-        Debug.Log("DJOSIJ");
         if (lureCast == false)
         {
-            lureType.GetComponent<AIMovement>().target = this.gameObject;
-            Instantiate(lureType);
-            lure = GameObject.FindGameObjectWithTag("Lure");
-            lure.GetComponent<Lure>().SetPlayer(this);
-            GameObject[] fishes;
-            fishes = GameObject.FindGameObjectsWithTag("Fish");
+            float range = GetRange(castSpeed, castAngle);
+            Debug.Log(range);
+            float dir = gameObject.GetComponent<PlayerController>().rotation;
+            Vector2 pos = new Vector2(transform.position.x - range * Mathf.Sin(dir * Mathf.Deg2Rad), transform.position.y + range * Mathf.Cos(dir * Mathf.Deg2Rad));
+            if (Physics2D.OverlapCircle(pos, 0.5f).gameObject.name == "Pond")
+            {
+                lureType.GetComponent<AIMovement>().target = this.gameObject;
+                Instantiate(lureType);
+                lure = GameObject.FindGameObjectWithTag("Lure");
+                lure.GetComponent<Lure>().SetPlayer(this);
+                lure.transform.position = new Vector3(pos.x, pos.y, 0.0f);
+                GameObject[] fishes;
+                fishes = GameObject.FindGameObjectsWithTag("Fish");
 
-            foreach (GameObject f in fishes) {
-                f.GetComponent<FishController>().target = lure;
+                foreach (GameObject f in fishes)
+                {
+                    f.GetComponent<FishController>().target = lure;
+                }
+                lureCast = true;
+                return true;
+            } else
+            {
+                Debug.Log("Not in the Pond");
+                return false;
             }
-            lureCast = true;
+        } else
+        {
+            return false;
         }
+    }
+
+    public float GetRange(float speed, float angle)
+    {
+        return (speed*speed*Mathf.Sin(2*angle*(Mathf.PI/180))/g);
     }
 }

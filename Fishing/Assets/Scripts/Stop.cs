@@ -28,7 +28,18 @@ public class Stop : SteeringBehavior
         SteeringOutput steering = new SteeringOutput();
 
         // Get direction to the target
-        Vector3 direction = target.transform.position - character.transform.position;
+        IFollowable followable = character.GetComponent<IFollowable>();
+        Vector3 characterVelocity = followable.GetVelocity();
+
+        Vector3 direction;
+        if (target == null)
+        {
+            direction = characterVelocity.normalized;
+        }
+        else
+        {
+            direction = target.transform.position - character.transform.position;
+        }
         float distance = direction.magnitude;
 
         // Velocity that we want to have
@@ -38,10 +49,6 @@ public class Stop : SteeringBehavior
         targetVelocity = direction;
         targetVelocity.Normalize();
         targetVelocity *= maxSpeed;
-
-        // Get characters current speed
-        IFollowable followable = character.GetComponent<IFollowable>();
-        Vector3 characterVelocity = followable.GetVelocity();
 
         // Acceleration tries to get to the target velocity
         steering.linear = targetVelocity - characterVelocity;

@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 384711506157208322}
   - component: {fileID: 685643133}
   - component: {fileID: 685643134}
-  m_Layer: 0
+  - component: {fileID: 1433162036}
+  m_Layer: 9
   m_Name: Pond
   m_TagString: Pond
   m_Icon: {fileID: 0}
@@ -102,6 +103,22 @@ EdgeCollider2D:
   - {x: -0.35355, y: -0.35355}
   - {x: -0.46194, y: -0.19134}
   - {x: -0.5, y: 0}
+--- !u!58 &1433162036
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 384711506157208321}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!1 &384711506574859126
 GameObject:
   m_ObjectHideFlags: 0
@@ -112,7 +129,7 @@ GameObject:
   m_Component:
   - component: {fileID: 384711506574859129}
   - component: {fileID: 384711506574859128}
-  m_Layer: 4
+  m_Layer: 9
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}

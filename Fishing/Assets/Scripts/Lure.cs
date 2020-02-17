@@ -12,10 +12,11 @@ using UnityEngine;
 public class Lure : MonoBehaviour
 {
 
-    private Fisherman player;
+    public Fisherman player;
+    public float catchRadius;
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Pond")
+        if (collision.gameObject.tag == "Pond" && collision.GetType() == typeof(EdgeCollider2D))
         {
             Debug.Log("Reel it boy!");
             player.CatchFish();
@@ -26,5 +27,6 @@ public class Lure : MonoBehaviour
     public void SetPlayer(Fisherman player)
     {
         this.player = player;
+        this.catchRadius = player.catchRadius;
     }
 }
