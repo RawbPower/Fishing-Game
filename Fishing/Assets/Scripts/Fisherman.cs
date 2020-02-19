@@ -12,6 +12,7 @@ public class Fisherman : MonoBehaviour
 
     public float castAngle;
     public float castSpeed;
+    public float height = 3;
 
     private Vector3 distance;
 
@@ -76,7 +77,7 @@ public class Fisherman : MonoBehaviour
     {
         if (lureCast == false)
         {
-            float range = GetRange(castSpeed, castAngle);
+            float range = GetRange(castSpeed, castAngle, height);
             Debug.Log(range);
             float dir = gameObject.GetComponent<PlayerController>().rotation;
             Vector2 pos = new Vector2(transform.position.x - range * Mathf.Sin(dir * Mathf.Deg2Rad), transform.position.y + range * Mathf.Cos(dir * Mathf.Deg2Rad));
@@ -107,8 +108,12 @@ public class Fisherman : MonoBehaviour
         }
     }
 
-    public float GetRange(float speed, float angle)
+    public float GetRange(float speed, float angle, float h)
     {
-        return (speed*speed*Mathf.Sin(2*angle*(Mathf.PI/180))/g);
+        //return (speed*speed*Mathf.Sin(2*angle*(Mathf.PI/180))/g);
+        float angleRad = angle * Mathf.Deg2Rad;
+        float xSpeed = speed * Mathf.Cos(angleRad);
+        float time = ((speed * Mathf.Sin(angleRad)) / g) + Mathf.Sqrt(((speed*speed*Mathf.Sin(angleRad) * Mathf.Sin(angleRad)) / (g*g)) + ((2*h) / (g)));
+        return xSpeed * time;
     }
 }
